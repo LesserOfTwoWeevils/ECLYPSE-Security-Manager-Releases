@@ -1,3 +1,4 @@
+
 ---
 
 # ECLYPSE Security Manager
@@ -13,7 +14,7 @@
 
 ## 🎯 What is This?
 
-ECLYPSE Security Manager is a **complete PKI and network management solution** designed specifically for Distech Controls ECLYPSE controllers in Building Automation Systems. It streamlines certificate lifecycle management, automates routine tasks, and provides enterprise-level security features for BAS environments ranging from single-site installations to large distributed deployments.
+ECLYPSE Security Manager is a **complete PKI and network management solution** designed specifically for ECLYPSE controllers in Building Automation Systems. It streamlines certificate lifecycle management, automates routine tasks, and provides enterprise-level security features for BAS environments ranging from single-site installations to large distributed deployments.
 
 **Built for:** System integrators, IT administrators, and support engineers managing ECLYPSE controllers
 
@@ -941,13 +942,11 @@ This is a **releases-only** repository. Source code is maintained in a separate 
 ## 📞 Support & Contact
 
 **Author:** Robert Lastinger
-**Company:** Distech Controls - Advanced Technical Support
 **Created For:** Internal support operations and advanced diagnostics
 
 **For Assistance:**
 - 📖 Check [documentation](docs/)
 - 🐛 Search [known issues](../../issues)
-- 📧 Contact Distech Controls Technical Support
 
 ---
 
@@ -966,4 +965,4 @@ This is a **releases-only** repository. Source code is maintained in a separate 
 
 ---
 
-Built with ⚡ by Distech Controls Advanced Technical Support
+Built with ⚡ by Advanced Technical Support
