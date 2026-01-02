@@ -1,5 +1,3 @@
-Looking at your codebase, this is a **much more sophisticated tool** than the current README suggests. You've built a comprehensive enterprise-grade certificate management platform. Here's an enhanced README that properly reflects what you've created:
-
 ---
 
 # ECLYPSE Security Manager
