@@ -3,12 +3,35 @@
 
 # ECLYPSE Security Manager
 
+> ⚠️ **IMPORTANT: COMMUNITY TOOL - NOT AN OFFICIAL DISTECH CONTROLS PRODUCT**
+>
+> This application is a special project developed by the Distech Controls Advanced Support Team and is **NOT a sanctioned or official release** by Distech Controls. Please read the **[DISCLAIMER.txt](DISCLAIMER.txt)** before using this tool.
+
 **Enterprise-grade certificate lifecycle management and network operations for ECLYPSE Building Automation Systems**
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux-lightgrey)]()
 [![PowerShell](https://img.shields.io/badge/PowerShell-7.0%2B-blue)]()
 [![OpenSSL](https://img.shields.io/badge/OpenSSL-3.x-green)]()
+[![Community Tool](https://img.shields.io/badge/status-community%20tool-orange)]()
+
+---
+
+## ⚠️ Important Notice
+
+**THIS IS A COMMUNITY TOOL - READ BEFORE USE**
+
+This application is:
+- ✅ **Freely available** for use and redistribution
+- ✅ **Built using** only publicly available RESTful API endpoints
+- ✅ **Supported by Advanced Support** at their discretion, primarily for Distech SI's, Distributors, OEMs, and partners
+- ❌ **NOT an official Distech Controls product**
+- ❌ **NOT covered** by Distech Controls warranties or support agreements
+- ❌ **NOT subject** to standard Distech Controls release procedures
+
+**📋 [READ THE FULL DISCLAIMER](DISCLAIMER.txt)** - Contains important legal information about warranty, liability, and support.
+
+**By using this tool, you acknowledge and accept the terms in the disclaimer.**
 
 ---
 
@@ -17,6 +40,8 @@
 ECLYPSE Security Manager is a **complete PKI and network management solution** designed specifically for ECLYPSE controllers in Building Automation Systems. It streamlines certificate lifecycle management, automates routine tasks, and provides enterprise-level security features for BAS environments ranging from single-site installations to large distributed deployments.
 
 **Built for:** System integrators, IT administrators, and support engineers managing ECLYPSE controllers
+
+**Developed by:** Distech Controls Advanced Support Team (community project)
 
 **Replaces:** Manual certificate generation, ad-hoc OpenSSL commands, spreadsheet-based controller tracking
 
@@ -133,7 +158,7 @@ ECLYPSE Security Manager is a **complete PKI and network management solution** d
 
 - **Licensing System:**
   - Time-limited builds (30/60/90/180/365 day validity)
-  - Password-protected licenses
+  - Password-protected licenses (optional)
   - CA-signed certificates with signature validation
   - Embedded license PFX in compiled binaries
   - Expiration enforcement with countdown warnings
@@ -171,21 +196,33 @@ ECLYPSE Security Manager is a **complete PKI and network management solution** d
 
 ## 📥 Download & Installation
 
+### **Latest Release: v6.17.398b**
+
+**⚠️ License Validity:** This build is valid until **April 4, 2026** (90 days from release)
+
+Download the latest release from the [Releases](../../releases) page.
+
 ### **Windows (Compiled .exe)**
 
 1. **Download** the latest release:
    ```
-   ECLYPSE-Security-Manager-vX.X.XXXb.exe
+   ECLYPSE-Security-Manager-v6.17.398b.exe
    ```
 
-2. **First Run Setup:**
+2. **Verify Download (Recommended):**
+   ```powershell
+   (Get-FileHash .\ECLYPSE-Security-Manager-v6.17.398b.exe -Algorithm SHA256).Hash
+   # Should match: 0638F9702AF0CEF4D857850CEDE1D3547B546B82AFCB946FFC0FF02DF848477F
+   ```
+
+3. **First Run Setup:**
    - Double-click to launch
    - OpenSSL extracts to `%APPDATA%\EclypseManager\bin\` (one-time, 5-10 seconds)
    - Subsequent runs are instant (uses cached binaries)
 
-3. **File Structure:**
+4. **File Structure:**
    ```
-   ECLYPSE-Security-Manager-vX.X.XXXb.exe
+   ECLYPSE-Security-Manager-v6.17.398b.exe
    share/
    ├── app-core.dat (encrypted application code)
    └── openssl-binaries.dat (encrypted OpenSSL)
@@ -198,7 +235,7 @@ ECLYPSE Security Manager is a **complete PKI and network management solution** d
    └── openssl.cnf
    ```
 
-4. **Cleanup (Optional):**
+5. **Cleanup (Optional):**
    ```
    Settings → Diagnostics → (scroll down) → Remove OpenSSL Files
    ```
@@ -213,20 +250,26 @@ ECLYPSE Security Manager is a **complete PKI and network management solution** d
 
 1. **Download** the latest release:
    ```bash
-   wget https://github.com/[REPO]/releases/download/[TAG]/ECLYPSE-Security-Manager-vX.X.XXXb.AppImage
+   wget https://github.com/[REPO]/releases/download/v6.17.398b/ECLYPSE-Security-Manager-v6.17.398b.AppImage
    ```
 
-2. **Make executable:**
+2. **Verify Download (Recommended):**
    ```bash
-   chmod +x ECLYPSE-Security-Manager-vX.X.XXXb.AppImage
+   sha256sum ECLYPSE-Security-Manager-v6.17.398b.AppImage
+   # Should match: 65EABD485344B00A3359644BE5022DA597FF6C7FA0B3CB782FCC0902ABE8A1A9
    ```
 
-3. **Run:**
+3. **Make executable:**
    ```bash
-   ./ECLYPSE-Security-Manager-vX.X.XXXb.AppImage
+   chmod +x ECLYPSE-Security-Manager-v6.17.398b.AppImage
    ```
 
-4. **Optional: Install Avahi for mDNS:**
+4. **Run:**
+   ```bash
+   ./ECLYPSE-Security-Manager-v6.17.398b.AppImage
+   ```
+
+5. **Optional: Install Avahi for mDNS:**
    ```bash
    # Fedora/RHEL/Rocky/CentOS:
    sudo dnf install avahi avahi-tools
@@ -235,7 +278,7 @@ ECLYPSE Security Manager is a **complete PKI and network management solution** d
    sudo apt install avahi-daemon avahi-utils
    ```
 
-5. **Data Storage:**
+6. **Data Storage:**
    ```
    ~/.local/share/ECYSecurityManager/
    ├── Profiles/ (encrypted profile data)
@@ -879,7 +922,6 @@ Expected Performance:
 
 ---
 
-
 ## 🔄 Update System
 
 ### **Check for Updates**
@@ -929,40 +971,98 @@ Create new profile → Select language during setup
 
 ---
 
-## 🤝 Contributing
+## 📜 Legal & Licensing
 
-This is a **releases-only** repository. Source code is maintained in a separate private repository.
+### **Software License**
+This software is released under the **GNU General Public License v3.0 (GPL-3.0)**.
+See [LICENSE.txt](LICENSE.txt) for full terms.
 
-**Report Issues:** Use the [Issues](../../issues) tab for bug reports or feature requests
+### **Important Notices**
+- **[DISCLAIMER.txt](DISCLAIMER.txt)** - Legal disclaimer, warranty information, and project status
+- **[THIRD-PARTY-NOTICES.txt](THIRD-PARTY-NOTICES.txt)** - Third-party component licenses (OpenSSL, PowerShell, etc.)
 
-**Translations:** Contact the maintainer if you'd like to contribute language translations
+### **No Telemetry**
+This application:
+- ✅ Collects **zero** usage data
+- ✅ Makes **no** outbound connections (except manual update checks to GitHub public API)
+- ✅ Stores all data locally or sends directly to your controllers
+- ✅ Contains **no** tracking, analytics, or telemetry of any kind
 
 ---
 
-## 📞 Support & Contact
+## 🤝 Contributing & Support
 
-**Author:** Robert Lastinger
-**Created For:** Internal support operations and advanced diagnostics
+This is a **releases-only** repository. Source code is maintained in a separate private repository.
+
+### **Report Issues**
+Use the [Issues](../../issues) tab for:
+- 🐛 Bug reports
+- 💡 Feature requests
+- 📖 Documentation improvements
+
+### **Community Discussions**
+Use the [Discussions](../../discussions) tab for:
+- ❓ General questions
+- 💬 Community support
+- 🎓 Tips and best practices
+
+### **Support Availability**
+Support is provided by the Distech Controls Advanced Support Team on a **discretionary basis**, primarily for:
+- Distech Controls System Integrators (SI's)
+- Authorized Distributors
+- OEM Partners
+- Other Distech Controls business partners
+
+**Please note:** This is not covered by standard Distech Controls support agreements. Response times may vary, and complex issues may not be addressed.
+
+### **Translations**
+Contact the repository maintainer if you'd like to contribute language translations.
+
+---
+
+## 📞 Contact
+
+**Development Team:** Distech Controls Advanced Support Team
+**Project Lead:** Robert Lastinger
+**Purpose:** Community tool for PKI and network management in BAS environments
 
 **For Assistance:**
-- 📖 Check [documentation](docs/)
-- 🐛 Search [known issues](../../issues)
+- 📖 Check this [README](../../)
+- 🐛 Search [Issues](../../issues)
+- 💬 Ask in [Discussions](../../discussions)
+- 📋 Read the [DISCLAIMER](DISCLAIMER.txt)
+
+**For Official Distech Controls Support:**
+Please contact Distech Controls through official support channels for product-related inquiries.
 
 ---
 
 ## 🏆 Acknowledgments
 
-- **OpenSSL Project** - Certificate operations ([openssl.org](https://www.openssl.org/))
-- **PowerShell Team** - Cross-platform runtime ([github.com/PowerShell](https://github.com/PowerShell/PowerShell))
-- **PS2EXE Community** - Windows compilation ([github.com/MScholtes](https://github.com/MScholtes/PS2EXE))
+This tool leverages the following open-source projects:
+
+- **[OpenSSL Project](https://www.openssl.org/)** - Certificate generation and cryptographic operations
+- **[PowerShell Team](https://github.com/PowerShell/PowerShell)** - Cross-platform runtime environment
+- **[PS2EXE Community](https://github.com/MScholtes/PS2EXE)** - Windows executable compilation
+
+See [THIRD-PARTY-NOTICES.txt](THIRD-PARTY-NOTICES.txt) for complete licensing information.
 
 ---
 
-**Version:** 6.16.378b
-**Last Updated:** 2025-01-02
+## 📊 Project Information
+
+**Current Version:** v6.17.398b
+**Release Date:** January 5, 2026
+**License Validity:** 90 days (expires April 4, 2026)
+**License:** GPL-3.0
+**Status:** Community Tool (First Official Release)
 **Minimum PowerShell:** 7.0+
 **Supported Platforms:** Windows 10/11, Linux (most distributions)
 
 ---
 
-Built with ⚡ by Advanced Technical Support
+**Built with ⚡ by Distech Controls Advanced Support Team**
+
+*This is a community project. Please read [DISCLAIMER.txt](DISCLAIMER.txt) before use.*
+
+---

@@ -1,0 +1,196 @@
+═══════════════════════════════════════════════════════════════════════════════
+                        ECLYPSE SECURITY MANAGER
+                          IMPORTANT DISCLAIMER
+═══════════════════════════════════════════════════════════════════════════════
+
+                 READ THIS CAREFULLY BEFORE USING THIS SOFTWARE
+
+═══════════════════════════════════════════════════════════════════════════════
+
+THIS IS A COMMUNITY TOOL - NOT AN OFFICIAL DISTECH CONTROLS PRODUCT
+
+This application ("ECLYPSE Security Manager") is a special project developed by
+members of the Distech Controls Advanced Support Team and is NOT a sanctioned,
+endorsed, or official product release by Distech Controls Inc. or its affiliates.
+
+═══════════════════════════════════════════════════════════════════════════════
+1. PROJECT STATUS AND NATURE
+═══════════════════════════════════════════════════════════════════════════════
+
+✓ INDEPENDENTLY DEVELOPED
+  This tool was created independently using only publicly documented and
+  available RESTful API endpoints exposed by ECLYPSE controllers.
+
+✓ NO PROPRIETARY TECHNOLOGY
+  This application does NOT use, incorporate, or rely upon any proprietary
+  knowledge, protocols, communication methods, or tools owned by Distech
+  Controls Inc.
+
+✓ PUBLICLY AVAILABLE
+  You are free and encouraged to use and redistribute this tool in accordance
+  with the GPL-3.0 license.
+
+✗ SOURCE CODE NOT AVAILABLE
+  The source code for this project is NOT currently available or published.
+
+✓ DISCRETIONARY SUPPORT
+  Support is provided by the Advanced Support Team at their sole discretion,
+  primarily for the benefit of:
+    • Distech Controls authorized System Integrators (SI's)
+    • Authorized Distributors
+    • OEM Partners
+    • Other Distech Controls business partners
+
+═══════════════════════════════════════════════════════════════════════════════
+2. WARRANTY DISCLAIMER
+═══════════════════════════════════════════════════════════════════════════════
+
+THIS SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS
+OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.
+
+IN NO EVENT SHALL DISTECH CONTROLS INC., ITS AFFILIATES, OR THE AUTHORS OF THIS
+SOFTWARE BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN
+ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+═══════════════════════════════════════════════════════════════════════════════
+3. NOT COVERED BY DISTECH CONTROLS SUPPORT
+═══════════════════════════════════════════════════════════════════════════════
+
+✗ This tool is NOT covered by any Distech Controls product warranty
+✗ This tool is NOT covered by Distech Controls standard support agreements
+✗ This tool is NOT subject to Distech Controls quality assurance processes
+✗ This tool is NOT subject to Distech Controls standard release procedures
+✗ This tool is NOT maintained under any service level agreement (SLA)
+
+Support inquiries may be addressed through the project's GitHub repository, but
+responses are provided on a best-effort basis at the discretion of the
+development team.
+
+═══════════════════════════════════════════════════════════════════════════════
+4. USE AT YOUR OWN RISK
+═══════════════════════════════════════════════════════════════════════════════
+
+While this tool has been tested internally, it has NOT undergone the rigorous
+quality assurance and certification processes required for official Distech
+Controls product releases.
+
+Users assume all risks associated with:
+  • Installation and configuration
+  • Operation and use
+  • Integration with existing systems
+  • Data security and integrity
+  • System compatibility
+  • Regulatory compliance
+  • Any adverse effects on connected systems or controllers
+
+═══════════════════════════════════════════════════════════════════════════════
+5. WHAT THIS TOOL IS NOT
+═══════════════════════════════════════════════════════════════════════════════
+
+This tool is NOT:
+  ✗ An official Distech Controls product
+  ✗ Required for operation of ECLYPSE controllers
+  ✗ A replacement for official Distech Controls software tools
+  ✗ Certified or validated by Distech Controls product management
+  ✗ Covered under any Distech Controls support contract
+  ✗ Subject to the same warranty terms as Distech Controls products
+  ✗ A commitment by Distech Controls to ongoing development or support
+
+═══════════════════════════════════════════════════════════════════════════════
+6. INTENDED USERS
+═══════════════════════════════════════════════════════════════════════════════
+
+This tool is designed for use by qualified professionals, including:
+  • Experienced system integrators
+  • Network administrators familiar with BAS environments
+  • Technical support engineers
+  • IT professionals managing building automation systems
+
+Users should have appropriate technical knowledge and understanding of:
+  • PKI and certificate management concepts
+  • Network security principles
+  • ECLYPSE controller architecture and configuration
+  • Risk assessment and mitigation in production environments
+
+═══════════════════════════════════════════════════════════════════════════════
+7. SUPPORT AND ASSISTANCE
+═══════════════════════════════════════════════════════════════════════════════
+
+LIMITED SUPPORT AVAILABILITY:
+Support for this tool is provided by the Distech Controls Advanced Support Team
+on a discretionary basis, primarily for the benefit of Distech Controls
+authorized partners and customers.
+
+Support may be requested via:
+  • GitHub Issues: Bug reports and feature requests
+  • GitHub Discussions: General questions and community discussion
+
+RESPONSE EXPECTATIONS:
+  • No guaranteed response times
+  • No service level agreements (SLAs)
+  • Responses provided on a best-effort basis
+  • Priority given to partner organizations
+  • Complex issues may not be addressed
+  • Future development is not guaranteed
+
+═══════════════════════════════════════════════════════════════════════════════
+8. ACKNOWLEDGMENT AND ACCEPTANCE
+═══════════════════════════════════════════════════════════════════════════════
+
+BY DOWNLOADING, INSTALLING, OR USING THIS SOFTWARE, YOU ACKNOWLEDGE THAT:
+
+1. You have read and understood this disclaimer in its entirety
+2. You accept all terms, conditions, and limitations herein
+3. You understand this is NOT an official Distech Controls product
+4. You understand there is NO WARRANTY of any kind
+5. You assume ALL RISKS associated with use of this software
+6. You will not hold Distech Controls Inc., its affiliates, or the authors
+   liable for any damages or issues arising from use of this software
+7. You understand that support is discretionary and not guaranteed
+8. You are solely responsible for evaluating the suitability of this tool
+   for your specific use case
+9. You will conduct appropriate testing before deployment in production
+   environments
+
+═══════════════════════════════════════════════════════════════════════════════
+9. LIMITATION OF LIABILITY
+═══════════════════════════════════════════════════════════════════════════════
+
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL DISTECH
+CONTROLS INC., ITS AFFILIATES, EMPLOYEES, OR THE AUTHORS OF THIS SOFTWARE BE
+LIABLE FOR ANY SPECIAL, INCIDENTAL, INDIRECT, OR CONSEQUENTIAL DAMAGES
+WHATSOEVER (INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS OF BUSINESS PROFITS,
+BUSINESS INTERRUPTION, LOSS OF BUSINESS INFORMATION, OR ANY OTHER PECUNIARY
+LOSS) ARISING OUT OF THE USE OF OR INABILITY TO USE THIS SOFTWARE, EVEN IF
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+═══════════════════════════════════════════════════════════════════════════════
+10. LICENSING
+═══════════════════════════════════════════════════════════════════════════════
+
+This software is released under the GNU General Public License v3.0 (GPL-3.0).
+See LICENSE.txt for full license terms.
+
+Third-party components are licensed under their respective licenses.
+See THIRD-PARTY-NOTICES.txt for details.
+
+═══════════════════════════════════════════════════════════════════════════════
+11. QUESTIONS OR CONCERNS
+═══════════════════════════════════════════════════════════════════════════════
+
+If you have questions about this disclaimer or the nature of this project,
+please open a discussion on the GitHub repository or contact the repository
+maintainer directly.
+
+For official Distech Controls product support, please contact Distech Controls
+through official support channels.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+Document Version: 1.0
+Last Updated: January 5, 2026
+Application Version: v6.17.398b
+
+═══════════════════════════════════════════════════════════════════════════════
