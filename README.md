@@ -36,31 +36,6 @@ This application is:
 ---
 
 
-<details>
-<summary><b>🖼️ Click to view application screenshots</b></summary>
-
-### Profile Selection
-![Profile Selection](docs/images/profile-selection.png)
-*Secure, encrypted profiles with multi-user support*
-
-### Main Dashboard
-![Main Menu](docs/images/main-menu.png)
-*Intuitive menu-driven interface for all operations*
-
-### Network Discovery
-![mDNS Discovery](docs/images/mdns-discovery.png)
-*Automatic controller discovery using mDNS/Avahi*
-
-### Backup Management
-![Backup Dashboard](docs/images/backup-dashboard.png)
-*Visual dashboard with bar charts for backup status*
-
-### Certificate Inventory
-![Certificate Inventory](docs/images/certificate-inventory.png)
-*Comprehensive certificate tracking across all controllers*
-
-</details>
-
 ## 🎯 What is This?
 
 ECLYPSE Security Manager is a **complete PKI and network management solution** designed specifically for ECLYPSE controllers in Building Automation Systems. It streamlines certificate lifecycle management, automates routine tasks, and provides enterprise-level security features for BAS environments ranging from single-site installations to large distributed deployments.
@@ -72,6 +47,33 @@ ECLYPSE Security Manager is a **complete PKI and network management solution** d
 **Replaces:** Manual certificate generation, ad-hoc OpenSSL commands, spreadsheet-based controller tracking
 
 ---
+
+<details>
+<summary><b>🖼️ Click to view application screenshots</b></summary>
+
+### Profile Selection
+![Profile Selection](images/profile-selection.png)
+*Secure, encrypted profiles with multi-user support*
+
+### Main Dashboard
+![Main Menu](images/main-menu.png)
+*Intuitive menu-driven interface for all operations*
+
+### Network Discovery
+![mDNS Discovery](images/mdns-discovery.png)
+*Automatic controller discovery using mDNS/Avahi*
+
+### Backup Management
+![Backup Dashboard](images/backup-dashboard.png)
+*Visual dashboard with bar charts for backup status*
+
+### Certificate Inventory
+![Certificate Inventory](images/certificate-inventory.png)
+*Comprehensive certificate tracking across all controllers*
+
+</details>
+
+
 
 ## ✨ Key Features
 
