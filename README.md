@@ -1,3 +1,6 @@
+
+---
+
 # ECLYPSE Security Manager
 
 > ⚠️ **IMPORTANT: COMMUNITY TOOL - NOT AN OFFICIAL DISTECH CONTROLS PRODUCT**
@@ -28,13 +31,13 @@ This application is:
 
 **📋 [READ THE FULL DISCLAIMER](DISCLAIMER.txt)** - Contains important legal information about warranty, liability, and support.
 
-**By using this tool, you acknowledge and accept the terms in the disclaimer.**
+**By using this tool, you acknowledge and accept these terms.**
 
 ---
 
 ## 🔄 Semantic Versioning Adoption
 
-**Version Numbering:** v6.17.399b → v1.0.1 → v1.0.7 → v1.0.8
+**Version Numbering:** v6.17.399b → v1.0.1 → v1.0.7 → v1.0.8 → v1.0.9
 
 We've transitioned from development versioning (6.x.x) to **semantic versioning** for clearer release communication:
 
@@ -42,9 +45,9 @@ We've transitioned from development versioning (6.x.x) to **semantic versioning*
 - **MINOR** (x.1.x): New features, backward compatible
 - **PATCH** (x.x.1): Bug fixes and improvements
 
-**This is NOT a downgrade** - v1.0.8 is **NEWER** than v6.17.399b and includes all features plus Network Interface Management and Event Management. The built-in update checker correctly detects these transitions.
+**This is NOT a downgrade** - v1.0.9 is **NEWER** than v6.17.399b and includes all features plus Network Interface Management, Event Management, and Task Automation. The built-in update checker correctly detects these transitions.
 
-**Upgrading from v6.17.x, v1.0.1, or v1.0.7?** Your profiles are fully compatible. Just replace the executable/AppImage - no migration needed.
+**Upgrading from v6.17.x, v1.0.1, v1.0.7, or v1.0.8?** Your profiles are fully compatible. Just replace the executable/AppImage - no migration needed.
 
 ---
 
@@ -89,7 +92,7 @@ ECLYPSE Security Manager is a **complete PKI and network management solution** d
 
 ## ✨ Key Features
 
-### 📬 **Event Management (NEW in v1.0.8)**
+### 📬 **Event Management (Enhanced in v1.0.9)**
 
 - **Recipient Management:** View and delete MQTT, Email, and Webhook recipients
   - Parallel querying across all controllers
@@ -97,11 +100,29 @@ ECLYPSE Security Manager is a **complete PKI and network management solution** d
   - Connection details: Topic, connection string, QoS settings
   - Intelligent deduplication across controllers
 
-- **Task Management:** View and delete scheduled tasks and automation
+- **Task Management:** View, create, and delete scheduled tasks and automation
+  - **Task Creation (NEW in v1.0.9):** 8-step wizard for scheduled controller reboots
+    - Guided cron expression builder (Hourly, Daily, Weekly, Monthly, Custom)
+    - Frequency enforcement (minimum 1-hour interval)
+    - Optional task expiration with automatic self-cleanup
+    - Recipient override capability
+    - Parallel task creation across multiple controllers
+  - **Multi-Task Deletion (NEW in v1.0.9):** Delete multiple tasks at once
+    - Single selection: `1`
+    - Range selection: `1-3`
+    - List selection: `1,3,5`
+    - Automatic duplicate removal
   - Task status: Enabled/disabled state with visual indicators
   - Action details: HTTP method, endpoint URLs
   - Execution history: Last status (Success/Failed) with timestamps
   - Trigger and recipient associations
+
+- **Task Expiration with Self-Cleanup:**
+  - Creates expiration task that deletes main task AND itself
+  - Uses batch API: `POST /api/rest/v2/batch`
+  - Dual DELETE operations in escaped JSON body
+  - Single trigger execution removes both tasks automatically
+  - No manual cleanup required
 
 - **Batch Deletion Operations:**
   - Parallel scanning to identify unique items
@@ -111,6 +132,9 @@ ECLYPSE Security Manager is a **complete PKI and network management solution** d
   - Smart verification: Items not found = success (desired state)
 
 - **Use Cases:**
+  - **NEW:** Schedule maintenance reboots (daily, weekly, monthly)
+  - **NEW:** Time-limited automation (task expires after project completion)
+  - **NEW:** Bulk cleanup of old/test automation tasks
   - Clean up test/demo MQTT configurations
   - Remove deprecated webhook integrations
   - Audit event configurations across sites
@@ -219,8 +243,8 @@ ECLYPSE Security Manager is a **complete PKI and network management solution** d
   - Remote Backup Create (scheduled backup creation)
   - Remote Backup Cleanup (age-based remote deletion)
   - Local Cleanup (retention policy enforcement)
-  - Certificate Renewal (planned)
-  - Network Scan (planned)
+  - Certificate Renewal (planned for v1.1.0)
+  - Network Scan (planned for v1.1.0)
 
 - **Scheduling Options:**
   - Daily, Weekly, Monthly
@@ -240,7 +264,7 @@ ECLYPSE Security Manager is a **complete PKI and network management solution** d
 - **Submenu Structure:**
   - Option 1: Controller Dashboard
   - Option 2: Network Interface Management
-  - Option 3: Event Management (NEW in v1.0.8)
+  - Option 3: Event Management (Task Creation in v1.0.9)
   - Clear navigation labels
 - **Per-Controller Credentials:** Override session credentials for specific controllers (encrypted)
 - **Metadata Caching:** Operation-aware cache with configurable TTL (10-60 minutes)
@@ -297,6 +321,7 @@ ECLYPSE Security Manager is a **complete PKI and network management solution** d
   - Certificate deployment
   - Interface configuration
   - Event management
+  - Task creation
   - Backup operations
   - Silent console output (errors logged to file at DEBUG level)
   - Intelligent recovery (only retries failures)
@@ -316,12 +341,12 @@ ECLYPSE Security Manager is a **complete PKI and network management solution** d
 
 ## 📥 Download & Installation
 
-### **Latest Release: v1.0.8**
+### **Latest Release: v1.0.9**
 
 Download the latest release from the **[Releases](../../releases/latest)** page:
 
-- **Windows:** `ECY-Security-Manager-v1.0.8.exe` (~13 MB)
-- **Linux:** `ECY-Security-Manager-v1.0.8.AppImage` (~78 MB)
+- **Windows:** `ECY-Security-Manager-v1.0.9.exe` (~13 MB)
+- **Linux:** `ECY-Security-Manager-v1.0.9.AppImage` (~78 MB)
 
 **Each release includes:**
 - Binary files for Windows and Linux
@@ -428,7 +453,28 @@ Follow the 8-step wizard to create a CA with full control over:
 
 ---
 
-### **7. Manage Event Recipients & Tasks**
+### **7. Create Scheduled Tasks (NEW in v1.0.9)**
+
+**8-Step Workflow:**
+1. Get credentials
+2. Select target controllers
+3. Name the task (e.g., `reboot-sunday`)
+4. Build schedule using guided cron builder
+5. Optional: Set expiration date
+6. Configure recipients
+7. Review and confirm
+8. Parallel execution across all selected controllers
+
+**Cron Builder Options:**
+- Hourly: Minimum 1 hour (e.g., every 2 hours)
+- Daily: Specific time (e.g., 2:00 AM)
+- Weekly: Day and time (e.g., Sunday at midnight)
+- Monthly: Day of month and time (e.g., 1st at 3:00 AM)
+- Custom: Manual expression with validation
+
+---
+
+### **8. Manage Event Recipients & Tasks**
 
 **View Recipients:**
 - Query MQTT, Email, and Webhook configurations
@@ -438,12 +484,13 @@ Follow the 8-step wizard to create a CA with full control over:
 **Delete Items:**
 - Intelligent scanning across controllers
 - Show item prevalence (found on X/Y controllers)
+- Multi-task deletion: single (`1`), range (`1-3`), or list (`1,3,5`)
 - Batch deletion with 3-pass retry
 - Verification: Items not found = success
 
 ---
 
-### **8. Schedule Automated Backups**
+### **9. Schedule Automated Backups**
 
 Create jobs for:
 - Daily backup downloads
@@ -492,6 +539,7 @@ Final Summary (Console Display)
 - mDNS discovery
 - Simple certificate generation
 - Manual or scheduled backups
+- **NEW:** Schedule maintenance reboots
 
 ### **Multi-Site Enterprise (100+ Controllers)**
 - Template-based certificate generation
@@ -499,18 +547,26 @@ Final Summary (Console Display)
 - Automated nightly backups
 - Profile export for team sharing
 - Bulk interface management
+- **NEW:** Centralized task automation
 
 ### **Service Provider / MSP**
 - One profile per customer
 - Isolated credentials and settings
 - Profile export for team coordination
 - Per-customer CA infrastructure
+- **NEW:** Scheduled maintenance windows per site
 
 ### **IPv6 Migration**
 - Bulk interface enablement
 - 3-pass reliability
 - Automatic verification
 - Typically 97-99% success rate
+
+### **Operations & Maintenance (NEW)**
+- Scheduled controller reboots
+- Time-limited automation tasks
+- Bulk cleanup of expired tasks
+- Event-driven workflows
 
 ---
 
@@ -521,6 +577,8 @@ Final Summary (Console Display)
 - ✅ Store exports in secure location
 - ✅ Use named profiles for production
 - ✅ Test interface changes on single controller first
+- ✅ Test scheduled tasks before deploying to all controllers
+- ✅ Use expiration for temporary automation
 - ✅ Document baseline configurations
 - ✅ Schedule during maintenance windows
 
@@ -532,6 +590,8 @@ Final Summary (Console Display)
 - **Adaptive Network Management:** Dynamic operation tuning based on real-time conditions
 - **Variable Expansion:** Generate hundreds of certificates with patterns
 - **Profile Export/Import:** Team sharing and disaster recovery
+- **Task Expiration:** Automatic cleanup via batch API
+- **Multi-Selection:** Range and list selection for bulk operations
 
 ---
 
@@ -565,6 +625,8 @@ Common issues and solutions:
 - Authentication failures during mDNS
 - Slow scans
 - Profile password issues
+- Task creation failures
+- Cron expression validation errors
 - Performance optimization tips
 
 See the detailed troubleshooting section in the full README for complete guidance.
@@ -673,9 +735,9 @@ See [THIRD-PARTY-NOTICES.txt](THIRD-PARTY-NOTICES.txt) for complete licensing in
 
 ## 📊 Project Information
 
-**Current Version:** v1.0.8
+**Current Version:** v1.0.9
 **Versioning Scheme:** Semantic Versioning (MAJOR.MINOR.PATCH)
-**Release Date:** January 8, 2026
+**Release Date:** January 12, 2026
 **License:** GPL-3.0
 **Status:** Community Tool - Stable Release
 **Minimum PowerShell:** 7.0+
@@ -690,6 +752,7 @@ See [THIRD-PARTY-NOTICES.txt](THIRD-PARTY-NOTICES.txt) for complete licensing in
 ---
 
 **📝 Version History:**
+- **v1.0.9** (2026-01-12): Task Automation & Multi-Task Management
 - **v1.0.8** (2026-01-08): Event Management & Scheduled Tasks
 - **v1.0.7** (2026-01-07): Network Interface Management + 3-Pass Reliability
 - **v1.0.1** (2026-01-06): Semantic Versioning Transition + Critical Fixes
